@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.binaryflop.kyles.currencyconverter.MainActivity"
+    android:clickable="true">
+
+    <TextView
+        android:text="Welcome, to get started simply enter the inputs below"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:id="@+id/txtIntro"
+        android:textSize="18sp" />
+
+    <TextView
+        android:text="0"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txtIntro"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="13dp"
+        android:id="@+id/fromValue"
+        android:textSize="30sp"
+        android:clickable="true"
+        android:onClick="Activate" />
+
+    <Spinner
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/fromValue"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="11dp"
+        android:id="@+id/fromCurrency"
+        android:dropDownWidth="match_parent"
+        android:entries="@array/test" />
+
+    <TextView
+        android:text="0"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="39dp"
+        android:id="@+id/toValue"
+        android:textSize="30sp"
+        android:layout_below="@+id/fromCurrency"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:onClick="Activate" />
+
+    <Spinner
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:id="@+id/toCurrency"
+        android:entries="@array/test"
+        android:layout_below="@+id/toValue"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:weightSum="3"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:weightSum="3"
+            android:layout_below="@+id/toCurrency"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginBottom="5dp">
+
+            <Button
+                android:text="1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/one"
+                android:background="@android:color/darker_gray"
+                android:textColor="@android:color/white"
+                android:layout_below="@+id/toCurrency"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_weight="1"
+                android:width="0dp"
+                android:layout_marginRight="5dp"
+                android:onClick="Calculate" />
+
+            <Button
+                android:text="2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/two"
+                android:layout_weight="1"
+                android:background="@android:color/darker_gray"
+                android:textColor="@android:color/white"
+                android:onClick="Calculate" />
+
+            <Button
+                android:text="3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/three"
+                android:layout_weight="1"
+                android:background="@android:color/darker_gray"
+                android:textColor="@android:color/white"
+                android:layout_marginLeft="5dp"
+                android:onClick="Calculate" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:weightSum="3"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/linearLayout2"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginBottom="5dp">
+
+            <Button
+                android:text="4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/linearLayout"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:id="@+id/four"
+                android:background="@android:color/darker_gray"
+                android:textColor="@android:color/white"
+                android:layout_weight="1"
+                android:width="0dp"
+                android:layout_marginRight="5dp"
+                android:onClick="Calculate" />
+
+            <Button
+                android:text="5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/Five"
+                android:layout_weight="1"
+                android:background="@android:color/darker_gray"
+                android:textColor="@android:color/white"
+                android:onClick="Calculate" />
+
+            <Button
+                android:text="6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/six"
+                android:layout_weight="1"
+                android:background="@android:color/darker_gray"
+                android:textColor="@android:color/background_light"
+                android:layout_marginLeft="5dp"
+                android:onClick="Calculate" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginBottom="5dp">
+
+            <Button
+                android:text="7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/seven"
+                android:layout_weight="1"
+                android:textColor="@android:color/white"
+                android:background="@android:color/darker_gray"
+                android:layout_marginRight="5dp"
+                android:onClick="Calculate" />
+
+            <Button
+                android:text="8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/eight"
+                android:layout_weight="1"
+                android:background="@android:color/darker_gray"
+                android:textColor="@android:color/white"
+                android:onClick="Calculate" />
+
+            <Button
+                android:text="9"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/nine"
+                android:layout_weight="1"
+                android:background="@android:color/darker_gray"
+                android:textColor="@android:color/white"
+                android:layout_marginLeft="5dp"
+                android:onClick="Calculate" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/spacerLeft"
+                android:layout_weight="1"
+                android:background="@android:color/darker_gray"
+                android:text="CE"
+                android:textColor="@android:color/white"
+                android:layout_marginRight="5dp"
+                android:onClick="Clear" />
+
+            <Button
+                android:text="0"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/zero"
+                android:layout_weight="1"
+                android:background="@android:color/darker_gray"
+                android:textColor="@android:color/white"
+                android:onClick="Calculate" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/spacerRight"
+                android:layout_weight="1"
+                android:background="@android:color/darker_gray"
+                android:layout_marginLeft="5dp"
+                android:textColor="@android:color/white"
+                android:text="."
+                android:onClick="Decimal" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</RelativeLayout>
