@@ -13,27 +13,19 @@ import java.util.Map;
 public class Calculator {
 
     private TextView active;
-    private Map<String, String> map = new HashMap<String, String>();
-    private TextView fromValue;
-    private TextView toValue;
-    private String fromCurrency;
-    private String toCurrency;
+    private Map<String, TextView> map = new HashMap<String, TextView>();
+    private float conversionFactor = 1;
 
-    private void updateValue(){
-
-    }
 
     Calculator(TextView from, TextView to){
         this.active =  from;
-        map.put(Integer.toString(from.getId()), "0");
-        map.put(Integer.toString(to.getId()), "0");
-    }
-
-    public void Alert(){
-        Log.i("Info", "Hello World");
+        this.active.setTypeface(null, Typeface.BOLD);
+        map.put(Integer.toString(from.getId()), from);
+        map.put(Integer.toString(to.getId()), to);
     }
 
     public void setActive(TextView activate){
+        this.active.setTypeface(null, Typeface.NORMAL);
         this.active = activate;
         this.active.setTypeface(null, Typeface.BOLD);
         Log.i("Setting Active to", Integer.toString(this.active.getId()));
@@ -47,13 +39,31 @@ public class Calculator {
         this.active.setText(value + ".");
     }
 
-    public void CalculateValue(int value){
-        Log.i("Current Value", (String) this.active.getText());
-        this.active.setText(((String) this.active.getText() != "0" && this.active.getText() != (CharSequence) "0") ? this.active.getText() + Integer.toString(value) : Integer.toString(value));
+    public void SetMultiplier(float multiplier){
+        this.conversionFactor = multiplier;
+        this.CalculateValue();
+    }
+
+    public void AddToValue(int value) {
+        this.active.setText(( !this.active.getText().toString().equals("0") ) ? this.active.getText() + Integer.toString(value) : Integer.toString(value));
+        this.CalculateValue();
+    }
+
+    public void CalculateValue(){
+        for(Map.Entry<String, TextView> entry : map.entrySet()) {
+           if ( !entry.getKey().equals(Integer.toString(active.getId())) ) {
+             entry.getValue().setText( Float.toString(Float.parseFloat((String) active.getText()) * this.conversionFactor) );
+           }
+        }
     }
 
     public void Clear(){
-        this.active.setText("0");
-        Log.i("Clearing", Integer.toString(this.active.getId()));
+
+        for(Map.Entry<String, TextView> entry : this.map.entrySet()) {
+            entry.getValue().setText("0");
+            Log.i("Clearing", Integer.toString(entry.getValue().getId()));
+        }
+
+
     }
 }
